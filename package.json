@@ -1,0 +1,10 @@
+{
+  "name": "awesomesam",
+  "version": "1.0.0",
+  "description": "Website for self",
+  "main": "index.js",
+  "repository": "https://github.com/AwesomeSam9523/awesomesam.git",
+  "author": "Samaksh Gupta <samakshgupta04@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
