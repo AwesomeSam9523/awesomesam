@@ -6,5 +6,12 @@
   "repository": "https://github.com/AwesomeSam9523/awesomesam.git",
   "author": "Samaksh Gupta <samakshgupta04@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "pg": "^8.11.1",
+    "vue-router": "^4.2.2"
+  }
 }
