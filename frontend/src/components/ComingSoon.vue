@@ -1,7 +1,7 @@
 <template>
   <div class="coming-soon">
     <h1>
-      <span>&lt;</span>Coming Soon<span>/&gt;</span>
+      <span>&lt;</span>AwesomeSam<span>/&gt;</span>
     </h1>
   </div>
 </template>
