@@ -1,17 +1,24 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import HomePage from "@/views/HomePage.vue"
+import MujPage from "@/views/MujPage.vue"
 import App from './App.vue'
 const routes = [
   {
     path: '/',
-    component: App,
+    component: HomePage,
     name: 'AwesomeSam | Home',
   },
+  {
+    path: '/muj',
+    component: MujPage,
+    name: 'MUJ Event',
+  }
 ]
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: routes,
 })
 
 router.beforeEach((to, from, next) => { // eslint-disable-line no-unused-vars
@@ -19,4 +26,6 @@ router.beforeEach((to, from, next) => { // eslint-disable-line no-unused-vars
   next();
 });
 
-createApp(App).use(router).mount('#app');
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
