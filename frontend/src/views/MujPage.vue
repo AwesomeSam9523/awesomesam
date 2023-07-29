@@ -30,8 +30,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Patua+One&display=swap');
 
 .background {
   position: fixed;
@@ -61,7 +60,7 @@ export default {
 .heading {
   margin-top: 8rem;
   display: flex;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Patua One', sans-serif;
   font-size: 7rem;
   color: rgb(255, 255, 255);
   // text-shadow: -1px -1px 0 rgb(15, 15, 15), 1px -1px 0 rgb(15, 15, 15), -1px 1px 0 rgb(15, 15, 15),
