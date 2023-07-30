@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <!-- <img :src="require('@/assets/backgrounds/MUJ.webp')"> -->
-    <section :style="{'background': 'url(' + require('@/assets/backgrounds/MUJ2.jpg') + ')'}">
+    <section :style="{'background': 'url(' + require('@/assets/backgrounds/MUJ_night_sky.jpg') + ')'}">
       <span></span>
       <span></span>
       <span></span>
@@ -63,11 +63,6 @@ export default {
   font-family: 'Patua One', sans-serif;
   font-size: 7rem;
   color: rgb(255, 255, 255);
-  // text-shadow: -1px -1px 0 rgb(15, 15, 15), 1px -1px 0 rgb(15, 15, 15), -1px 1px 0 rgb(15, 15, 15),
-  //   1px 1px 0 rgb(15, 15, 15), 0px 0.13rem 1px rgba(0, 0, 0, 0.486);
-  // add glow but not too hard
-  text-shadow: -1px -1px 0 rgb(15, 15, 15), 1px -1px 0 rgb(15, 15, 15), -1px 1px 0 rgb(15, 15, 15),
-    1px 1px 0 rgb(15, 15, 15), 0px 0.13rem 1px rgba(0, 0, 0, 0.486);
 }
 
 .tagline {
