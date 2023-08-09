@@ -17,9 +17,6 @@
         <button class="btn" @click="sendTo('github')">
           <i class="fa fa-github"></i>
         </button>
-        <button class="btn" @click="sendTo('spotify')">
-          <i class="fa-brands fa-spotify"></i>
-        </button>
         <button class="btn" @click="sendTo('discord')">
           <i class="fa-brands fa-discord"></i>
         </button>
@@ -31,6 +28,9 @@
         </button>
         <button class="btn" @click="sendTo('stackoverflow')">
           <i class="fa-brands fa-stack-overflow"></i>
+        </button>
+        <button class="btn" @click="sendTo('spotify')">
+          <i class="fa-brands fa-spotify"></i>
         </button>
         <button class="btn" @click="sendTo('email')">
           <i class="fa-regular fa-envelope"></i>
@@ -157,6 +157,7 @@ h1>span {
 .btn:hover {
   background-color: bisque;
   color: black;
+  border: 2px solid black;
 }
 
 </style>
