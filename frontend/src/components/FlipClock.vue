@@ -47,7 +47,7 @@
 import Clock from "@/assets/scripts/clock.ts"
 
 export default {
-  mounted() {
+  async mounted() {
     // deadline is 10th August, 2023 at 9:00 PM IST
     const deadline = new Date(Date.UTC(2023, 7, 10, 15, 30, 0));
     new Clock(deadline, function () { alert('countdown complete') }, this.$refs);

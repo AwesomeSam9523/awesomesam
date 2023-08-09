@@ -28,8 +28,7 @@
     </div>
     <div class="container page2">
       <div class="background2">
-        <!-- add particles.js -->
-        <div id="particles-js" style="opacity: 0.75;"></div>
+        <section :style="{ 'background': 'url(' + require('@/assets/backgrounds/timer.jpg') + ')' }"></section>
       </div>
       <div class="clock" v-if="showClock">
         <div class="heading2">
@@ -40,32 +39,97 @@
       <div class="links-cont" v-else>
         
       </div>
+      <div class="field field2">
+        <div class="text2" @click="scrollToPage3">Scroll</div>
+        <div class="scroll scroll2" @click="scrollToPage3"></div>
+      </div>
+    </div>
+    
+    <div class="container page3">
+      <div class="background3">
+        <section :style="{ 'background': 'url(' + require('@/assets/backgrounds/credits.jpg') + ')' }"></section>
+      </div>
+      <div class="heading3">
+        Organized By
+      </div>
+      <div class="credits">
+        <IndividualCredits v-for="credit in credits" :credits="credit" :key="credit.name" />
+      </div>
     </div>
   </div>
 </template>
   
 <script>
 import '@/assets/scripts/particles.js';
-import config from '@/assets/scripts/config.js';
 import FlipClock from '@/components/FlipClock.vue';
+import IndividualCredits from '@/components/IndividualCredits.vue';
 
 
 export default {
   components: {
-    FlipClock
+    FlipClock,
+    IndividualCredits,
   },
   data() {
     return {
       showClock: true,
+      credits: [
+        {
+          name: 'Samaksh Gupta',
+          role: 'Technical Team',
+          desc: 'Yeah I made this all lol',
+          img: 'samaksh.jpg'
+        },
+        {
+          name: 'Sanjit Chitturi',
+          role: 'Team Head',
+        },
+        {
+          name: 'Akhil',
+          role: 'Team Head',
+        },
+        {
+          name: 'Ashwika',
+          role: 'Designing Team',
+        },
+        {
+          name: 'Piyush Varma',
+          role: 'Designing Team',
+          desc: 'umm, I make the best alfredos',
+          img: 'piyush.jpg'
+        },
+        {
+          name: 'Pranav',
+          role: 'Marketing Team',
+          desc: 'Heyy everyone, my names Pranav!',
+          img: 'pranav.jpg'
+        },
+        {
+          name: 'Hitesh Soni',
+          role: 'Marketing Team',
+          desc: 'Normal is overrated. Embrace your extraordinary.',
+          img: 'hitesh.jpg'
+        },
+        {
+          name: 'Mahi Sachdeva',
+          role: 'Links Manager',
+        }
+      ]
     }
   },
   mounted() {
-    window.particlesJS('particles-js', config);
+    
   },
   methods: {
     scrollToPage2() {
       window.scrollTo({
         top: window.innerHeight,
+        behavior: 'smooth'
+      })
+    },
+    scrollToPage3() {
+      window.scrollTo({
+        top: window.innerHeight * 2,
         behavior: 'smooth'
       })
     }
@@ -88,11 +152,22 @@ export default {
 .background2 {
   background-color: black;
   position: absolute;
-  top: 50%;
+  top: 33.333%;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
+}
+
+.background3 {
+  background-color: black;
+  position: absolute;
+  top: 67%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(5px);
 }
 
 .background img {
@@ -124,6 +199,15 @@ export default {
   font-size: 4rem;
   color: rgb(255, 255, 255);
   margin-bottom: 1rem;
+}
+
+.heading3 {
+  display: flex;
+  font-family: 'Patua One', sans-serif;
+  font-size: 4rem;
+  color: rgb(255, 255, 255);
+  margin: 2rem 0;
+  filter: drop-shadow(0 0 1px #000000);
 }
 
 .tagline {
@@ -296,6 +380,10 @@ span:nth-child(9) {
   flex-direction: column;
   // width: 300px;
 }
+
+.field2 {
+  margin-top: 8rem;
+}
 .text {
   font-family: 'Arial';
   cursor: pointer;
@@ -303,6 +391,15 @@ span:nth-child(9) {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #01e1ff, 0 0 70px #01e1ff, 0 0 80px #01e1ff, 0 0 100px #01e1ff, 0 0 150px #01e1ff;
+}
+
+.text2 {
+  font-family: 'Arial';
+  cursor: pointer;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  //text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #1a1a1a, 0 0 70px #1a1a1a, 0 0 80px #1a1a1a, 0 0 100px #1a1a1a, 0 0 150px #1a1a1a;
 }
 .scroll {
   width: 60px;
@@ -325,6 +422,10 @@ span:nth-child(9) {
     border-bottom: 2px solid #dcdcdc;
     transform: rotate(-45deg);
   }
+}
+
+.scroll2 {
+  border: 2px solid #01e1ff;
 }
 
 @keyframes down {
@@ -379,6 +480,13 @@ span:nth-child(9) {
   justify-content: center;
   // background-color: #000000;
 }
+.page3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // background-color: #000000;
+}
 .links-cont {
   display: flex;
   flex-direction: column;
@@ -391,6 +499,16 @@ span:nth-child(9) {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.credits {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 </style>
   
