@@ -152,6 +152,10 @@ h1>span {
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
+  display: flex;
+  align-items: inherit;
+  justify-content: center;
+
 }
 
 .btn:hover {
@@ -159,5 +163,4 @@ h1>span {
   color: black;
   border: 2px solid black;
 }
-
 </style>
