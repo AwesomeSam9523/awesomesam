@@ -1,41 +1,41 @@
 <template>
   <div class="flip-clock" ref="clock">
-    <span class="flip-clock__piece flip" ref="DaysTracker">
+    <span class="flip-clock__piece flip" ref="daysTracker">
       <b class="flip-clock__card card">
         <b class="card__top">11</b>
-        <b class="card__bottom" data-value="12"></b>
-        <b class="card__back" data-value="12">
-          <b class="card__bottom" data-value="11"></b>
+        <b class="card__bottom" data-value="00"></b>
+        <b class="card__back" data-value="00">
+          <b class="card__bottom" data-value="00"></b>
         </b>
       </b>
       <span class="flip-clock__slot">Days</span>
     </span>
-    <span class="flip-clock__piece flip">
+    <span class="flip-clock__piece flip" ref="hoursTracker">
       <b class="flip-clock__card card">
         <b class="card__top">23</b>
         <b class="card__bottom" data-value="00"></b>
         <b class="card__back" data-value="00">
-          <b class="card__bottom" data-value="23"></b>
+          <b class="card__bottom" data-value="00"></b>
         </b>
       </b>
       <span class="flip-clock__slot">Hours</span>
     </span>
-    <span class="flip-clock__piece flip">
+    <span class="flip-clock__piece flip" ref="minutesTracker">
       <b class="flip-clock__card card">
         <b class="card__top">59</b>
         <b class="card__bottom" data-value="00"></b>
         <b class="card__back" data-value="00">
-          <b class="card__bottom" data-value="59"></b>
+          <b class="card__bottom" data-value="00"></b>
         </b>
       </b>
       <span class="flip-clock__slot">Minutes</span>
     </span>
-    <span class="flip-clock__piece flip">
+    <span class="flip-clock__piece flip" ref="secondsTracker">
       <b class="flip-clock__card card">
         <b class="card__top">09</b>
-        <b class="card__bottom" data-value="10"></b>
-        <b class="card__back" data-value="10">
-          <b class="card__bottom" data-value="09"></b>
+        <b class="card__bottom" data-value="00"></b>
+        <b class="card__back" data-value="00">
+          <b class="card__bottom" data-value="00"></b>
         </b>
       </b>
       <span class="flip-clock__slot">Seconds</span>
@@ -44,13 +44,13 @@
 </template>
 
 <script>
-import { Clock } from "@/assets/scripts/clock.ts"
+import Clock from "@/assets/scripts/clock.ts"
 
 export default {
   mounted() {
-    var deadline = new Date(Date.parse(new Date()) + 12 * 24 * 60 * 60 * 1000);
-    var c = new Clock(deadline, function () { alert('countdown complete') }, this.$refs);
-    // document.body.appendChild(c.el);
+    // deadline is 10th August, 2023 at 9:00 PM IST
+    const deadline = new Date(Date.UTC(2023, 7, 10, 15, 30, 0));
+    new Clock(deadline, function () { alert('countdown complete') }, this.$refs);
   },
   methods: {
   }

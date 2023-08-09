@@ -32,6 +32,9 @@
         <div id="particles-js" style="opacity: 0.75;"></div>
       </div>
       <div class="clock" v-if="showClock">
+        <div class="heading2">
+          🎉Time to Go...
+        </div>
         <FlipClock />
       </div>
       <div class="links-cont" v-else>
@@ -84,6 +87,9 @@ export default {
 
 .background2 {
   background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -110,6 +116,14 @@ export default {
   font-family: 'Patua One', sans-serif;
   font-size: 7rem;
   color: rgb(255, 255, 255);
+}
+
+.heading2 {
+  display: flex;
+  font-family: 'Patua One', sans-serif;
+  font-size: 4rem;
+  color: rgb(255, 255, 255);
+  margin-bottom: 1rem;
 }
 
 .tagline {
@@ -370,6 +384,13 @@ span:nth-child(9) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
   

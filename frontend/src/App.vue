@@ -12,7 +12,6 @@ export default {
   },
   created: function () {
     console.log('App created')
-    console.log(this.$router.getRoutes())
   },
 }
 </script>

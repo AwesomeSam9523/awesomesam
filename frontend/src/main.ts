@@ -22,7 +22,10 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => { // eslint-disable-line no-unused-vars
-  document.title = to.name;
+  if (!to.name) {
+    return;
+  }
+  document.title = to.name.toString();
   next();
 });
 

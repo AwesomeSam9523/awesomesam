@@ -1,41 +1,41 @@
+// @ts-nocheck
+
 class CountdownTracker {
     currentValue: number;
     spanElement: Element;
     label: string;
     value: number;
 
-    constructor(label: string, value: number, refs) {
+    constructor(label: string, value: number, refs: object) {
 
         const spanElement: Element = refs[`${label.toLowerCase()}Tracker`];
         this.spanElement = spanElement;
         this.label = label;
         this.value = value;
-        this.currentValue = null;
+        this.currentValue = 0;
 
+        this.update(value);
+    }
+
+    update (val: number) {
+        val = val.toString().padStart(2, '0');
+        
+        const spanElement = this.spanElement;
         const top = spanElement.querySelector('.card__top'),
             bottom = spanElement.querySelector('.card__bottom'),
             back = spanElement.querySelector('.card__back'),
             backBottom = spanElement.querySelector('.card__back .card__bottom');
-
-        this.update(value, top, bottom, back, backBottom);
-    }
-
-    update (val: number, top: Element, bottom: Element, back: Element, backBottom: Element) {
-        val = Number(val.toString().padStart(2, '0'));
         
         if (val !== this.currentValue) {
-            
             if (this.currentValue >= 0) {
                 back.setAttribute('data-value', this.currentValue.toString());
                 bottom.setAttribute('data-value', this.currentValue.toString());
             }
             this.currentValue = val;
-            // @ts-ignore
             top.innerText = this.currentValue;
             backBottom.setAttribute('data-value', this.currentValue.toString());
 
             this.spanElement.classList.remove('flip');
-            // @ts-ignore
             void this.spanElement.offsetWidth;
             this.spanElement.classList.add('flip');
         }
@@ -48,7 +48,7 @@ class Clock {
     callback: Function;
     throttle: number;
 
-    constructor (countdown: Date, callback: Function, refs) {
+    constructor (countdown: Date, callback: Function, refs: object) {
         this.countdown = countdown;
         callback = callback || function () { };
         this.callback = callback;
@@ -61,23 +61,23 @@ class Clock {
                 continue;
             }
             this.trackers[key] = new CountdownTracker(key, timeRemKeys[key], refs);
-            refs.clock.appendChild(this.trackers[key].el);
+            // refs['clock'].appendChild(this.trackers[key].el);
         }
 
         this.throttle = 0;
-        setTimeout(this.updateClock, 500);
+        this.updateClock();
     }
 
     updateClock() {
-        console.log('updateClock', this.throttle);
-        const timeinterval = requestAnimationFrame(this.updateClock);
+        this.throttle++;
+        const timeinterval = requestAnimationFrame(this.updateClock.bind(this));
     
         // // throttle so it's not constantly updating the time.
-        if (this.throttle++ % 10) {
+        if (this.throttle % 10) {
             return;
         }
     
-        var t = getTimeRemaining(this.countdown);
+        const t = getTimeRemaining(this.countdown);
         if (t.Total < 0) {
             cancelAnimationFrame(timeinterval);
             for (const key in this.trackers) {
@@ -104,6 +104,4 @@ function getTimeRemaining(endTime: Date) {
     };
 }
 
-export default {
-    Clock,
-};
+export default Clock
