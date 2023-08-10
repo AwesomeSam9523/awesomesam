@@ -30,11 +30,14 @@
       <div class="background2">
         <section :style="{ 'background': 'url(' + require('@/assets/backgrounds/timer.jpg') + ')' }"></section>
       </div>
-      <div class="clock" v-if="showClock">
+      <div class="clock" v-if="true">
         <div class="heading2">
-          🎉Time to Go...
+          🥳 Event Ended
         </div>
-        <FlipClock />
+        <div class="heading3" style="font-size: 1.5rem; margin: 0;">
+          Meet you all at the campus soon!
+        </div>
+        <!-- <FlipClock /> -->
       </div>
       <div class="links-cont" v-else :class="{ 'links-mobile': isMobileOrTablet }">
         <div class="direct-link">
