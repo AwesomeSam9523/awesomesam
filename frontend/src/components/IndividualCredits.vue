@@ -20,22 +20,18 @@
 </template>
 
 <script>
-import UAParser from "ua-parser-js"
-
 export default {
-  data() {
-    return {
-      isMobileOrTablet: false
-    }
-  },
   props: {
     credits: {
       type: Object,
       required: true
+    },
+    isMobileOrTablet: {
+      type: Boolean,
+      required: true
     }
   },
   created() {
-    this.checkMobile()
   },
   methods: {
     getImage(credits) {
@@ -43,17 +39,6 @@ export default {
         return require(`@/assets/img/${credits.img}`);
       } else {
         return require(`@/assets/img/placeholder.jpg`);
-      }
-    },
-    async checkMobile() {
-      const uaparser = await new UAParser()
-
-      try {
-        const deviceType = uaparser.getDevice().type
-        if (deviceType === "mobile" || deviceType === "tablet")
-          this.isMobileOrTablet = true
-      } catch (e) {
-        console.error(e)
       }
     },
   }

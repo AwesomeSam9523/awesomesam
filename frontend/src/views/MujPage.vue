@@ -36,8 +36,19 @@
         </div>
         <FlipClock />
       </div>
-      <div class="links-cont" v-else>
-        
+      <div class="links-cont" v-else :class="{ 'links-mobile': isMobileOrTablet }">
+        <div class="direct-link">
+          <a href="https://meet.google.com/qik-zonp-hue" target="_blank">
+            <img :src="require('@/assets/img/gmeet.png')" class="gmeet">
+            Google Meet
+          </a>
+        </div>
+        <div class="or">or</div>
+        <div class="meeting-code" @click="copyCodeToClipboard()">
+          <div></div>
+          qik-zonp-hue
+          <i class="fa-regular fa-copy icon-copy"></i>
+        </div>
       </div>
       <div class="field field2">
         <div class="text2" @click="scrollToPage3">Scroll</div>
@@ -53,7 +64,7 @@
         Organized By
       </div>
       <div class="credits">
-        <IndividualCredits v-for="credit in credits" :credits="credit" :key="credit.name" />
+        <IndividualCredits v-for="credit in credits" :credits="credit" :is-mobile-or-tablet="isMobileOrTablet" :key="credit.name" />
       </div>
     </div>
   </div>
@@ -63,7 +74,7 @@
 import '@/assets/scripts/particles.js';
 import FlipClock from '@/components/FlipClock.vue';
 import IndividualCredits from '@/components/IndividualCredits.vue';
-
+import UAParser from "ua-parser-js"
 
 export default {
   components: {
@@ -72,11 +83,13 @@ export default {
   },
   data() {
     return {
-      showClock: true,
+      // show clock only if time is less than 9pm IST, 10th August 2023 
+      showClock: Date.now() < new Date('2023-08-10T15:30:00.000Z').getTime(),
+      isMobileOrTablet: false,
       credits: [
         {
           name: 'Samaksh Gupta',
-          role: 'Technical Team',
+          role: 'Host & Technical Team',
           desc: 'Yeah I made this all lol',
           img: 'samaksh.jpg'
         },
@@ -117,8 +130,9 @@ export default {
       ]
     }
   },
-  mounted() {
-    
+  async created() {
+    setInterval(this.updateClock, 100);
+    await this.checkMobile();
   },
   methods: {
     scrollToPage2() {
@@ -132,6 +146,34 @@ export default {
         top: window.innerHeight * 2,
         behavior: 'smooth'
       })
+    },
+    async checkMobile() {
+      const uaparser = await new UAParser()
+
+      try {
+        const deviceType = uaparser.getDevice().type
+        if (deviceType === "mobile" || deviceType === "tablet")
+          this.isMobileOrTablet = true
+      } catch (e) {
+        console.error(e)
+      }
+    },
+    copyCodeToClipboard() {
+      const el = document.createElement('textarea');
+      el.value = 'qik-zonp-hue';
+      el.style.display = 'none';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+      alert('Copied to clipboard!');
+    },
+    updateClock() {
+      if (Date.now() < new Date('2023-08-10T15:30:00.000Z').getTime()) {
+        this.showClock = true;
+      } else {
+        this.showClock = false;
+      }
     }
   }
 }
@@ -509,6 +551,70 @@ span:nth-child(9) {
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 0 1rem;
+}
+
+.links-cont {
+  width: 40%;
+  margin-top: 10%;
+}
+
+.links-mobile {
+  width: 70%;
+}
+
+.direct-link, .meeting-code {
+  width: 100%;
+  height: 5rem;
+  background-color: #ffffff3c;
+  border-radius: 10px;
+}
+
+.direct-link > a {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-family: 'Patua One', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
+.gmeet {
+  width: 5rem;
+  margin-right: 1rem;
+}
+
+.or {
+  font-size: 2rem;
+  font-family: 'Patua One', sans-serif;
+  color: rgba(255, 255, 255, 0.716);
+  margin: 1rem 0;
+}
+
+.meeting-code {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 2.5rem;
+  font-family: 'Patua One', sans-serif;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.icon-copy {
+  width: 5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.648);
+  justify-content: center;
+  // border-top-left-radius: 10px;
+  border-radius: 10px;
 }
 </style>
   
