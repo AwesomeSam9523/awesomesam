@@ -14,27 +14,86 @@
         Connect with me on
       </div>
       <div class="links">
-        <button class="btn" @click="sendTo('github')">
+        <a
+          class="tooltip"
+          :href="sendTo('github')"
+          target="_blank"
+          @mouseenter="mouseenter('github', $event)"
+          @mouseleave="mouseleave('github', $event)"
+        >
           <i class="fa fa-github"></i>
-        </button>
-        <button class="btn" @click="sendTo('discord')">
+          <span class="tooltiptext">Github</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('linkedin')"
+          target="_blank"
+          @mouseenter="mouseenter('linkedin', $event)"
+          @mouseleave="mouseleave('linkedin', $event)"
+        >
+          <i class="fa fa-linkedin"></i>
+          <span class="tooltiptext">LinkedIn</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('discord')"
+          target="_blank"
+          @mouseenter="mouseenter('discord', $event)"
+          @mouseleave="mouseleave('discord', $event)"
+        >
           <i class="fa-brands fa-discord"></i>
-        </button>
-        <button class="btn" @click="sendTo('twitter')">
+          <span class="tooltiptext">Discord</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('twitter')"
+          target="_blank"
+          @mouseenter="mouseenter('twitter', $event)"
+          @mouseleave="mouseleave('twitter', $event)"
+        >
           <i class="fa-brands fa-twitter"></i>
-        </button>
-        <button class="btn" @click="sendTo('reddit')">
+          <span class="tooltiptext">Twitter</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('reddit')"
+          target="_blank"
+          @mouseenter="mouseenter('reddit', $event)"
+          @mouseleave="mouseleave('reddit', $event)"
+        >
           <i class="fa-brands fa-reddit"></i>
-        </button>
-        <button class="btn" @click="sendTo('stackoverflow')">
+          <span class="tooltiptext">Reddit</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('stackoverflow')"
+          target="_blank"
+          @mouseenter="mouseenter('stackoverflow', $event)"
+          @mouseleave="mouseleave('stackoverflow', $event)"
+        >
           <i class="fa-brands fa-stack-overflow"></i>
-        </button>
-        <button class="btn" @click="sendTo('spotify')">
+          <span class="tooltiptext">Stack Overflow</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('spotify')"
+          target="_blank"
+          @mouseenter="mouseenter('spotify', $event)"
+          @mouseleave="mouseleave('spotify', $event)"
+        >
           <i class="fa-brands fa-spotify"></i>
-        </button>
-        <button class="btn" @click="sendTo('email')">
+          <span class="tooltiptext">Spotify</span>
+        </a>
+        <a
+          class="tooltip"
+          :href="sendTo('email')"
+          target="_blank"
+          @mouseenter="mouseenter('email', $event)"
+          @mouseleave="mouseleave('email', $event)"
+        >
           <i class="fa-regular fa-envelope"></i>
-        </button>
+          <span class="tooltiptext">Email me</span>
+        </a>
       </div>
     </div>
   </div>
@@ -46,12 +105,23 @@ export default {
     return {
       urlMap: {
         github: 'https://github.com/AwesomeSam9523',
+        linkedin: 'https://www.linkedin.com/in/samakshgupta04/',
         spotify: 'https://open.spotify.com/user/arfu4gxiomfgdde3adimpijzx?si=14e7b8eb52254dbb',
         discord: 'https://discordapp.com/users/771601176155783198',
         stackoverflow: 'https://stackoverflow.com/users/14273514/awesomesam',
         reddit: 'https://www.reddit.com/user/Awesome_Sam_',
         twitter: 'https://twitter.com/AwesomeSam_',
         email: 'mailto:contact@awesomesam.dev'
+      },
+      hoverColor: {
+        github: '#6e5494',
+        linkedin: '#0077b5',
+        spotify: '#1db954',
+        discord: '#7289da',
+        stackoverflow: '#f48024',
+        reddit: '#ff4500',
+        twitter: '#1da1f2',
+        email: '#ea4335'
       }
     }
   },
@@ -60,8 +130,15 @@ export default {
   },
   methods: {
     sendTo(location) {
-      const url = this.urlMap[location];
-      window.open(url, '_blank')
+      return this.urlMap[location];
+    },
+    mouseenter(location, event) {
+      const target = event.target;
+      target.children[0].style.color = this.hoverColor[location];
+    },
+    mouseleave(location, event) {
+      const target = event.target;
+      target.children[0].style.color = 'unset';
     }
   }
 }
@@ -139,7 +216,7 @@ h1>span {
   // margin-top: 1rem;
 }
 
-.btn {
+a {
   background-color: rgb(22, 22, 22);
   border: 0;
   color: white;
@@ -148,19 +225,48 @@ h1>span {
   transition: all 0.25s ease-in-out;
   margin: 0.25rem;
   border: 2px solid white;
-  // make it a circle
   border-radius: 50%;
   width: 4rem;
   height: 4rem;
   display: flex;
   align-items: inherit;
   justify-content: center;
-
+  text-transform: none;
+  text-decoration: none;
 }
 
-.btn:hover {
+a:hover {
   background-color: bisque;
   color: black;
   border: 2px solid black;
+}
+
+.tooltip {
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'PT Mono', monospace;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext {
+  top: 105%;
+  width: 10rem;
+  right: 50%;
+  transform: translateX(50%);
 }
 </style>
