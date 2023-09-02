@@ -110,7 +110,7 @@ export default {
         discord: 'https://discordapp.com/users/771601176155783198',
         stackoverflow: 'https://stackoverflow.com/users/14273514/awesomesam',
         reddit: 'https://www.reddit.com/user/Awesome_Sam_',
-        twitter: 'https://twitter.com/AwesomeSam_',
+        twitter: 'https://twitter.com/samakshgupta04',
         email: 'mailto:contact@awesomesam.dev'
       },
       hoverColor: {
