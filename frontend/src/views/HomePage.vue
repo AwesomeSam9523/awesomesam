@@ -51,8 +51,8 @@
           @mouseenter="mouseenter('twitter', $event)"
           @mouseleave="mouseleave('twitter', $event)"
         >
-          <i class="fa-brands fa-twitter"></i>
-          <span class="tooltiptext">Twitter</span>
+        <i class="fa-brands fa-x-twitter"></i>
+          <span class="tooltiptext">X (Twitter)</span>
         </a>
         <a
           class="tooltip"
@@ -120,7 +120,7 @@ export default {
         discord: '#7289da',
         stackoverflow: '#f48024',
         reddit: '#ff4500',
-        twitter: '#1da1f2',
+        twitter: '#1e3050',
         email: '#ea4335'
       }
     }
