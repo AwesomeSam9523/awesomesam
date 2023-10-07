@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from "@/views/HomePage.vue"
 import MujPage from "@/views/MujPage.vue"
+import FoodPage from "@/views/FoodPage.vue"
 import App from './App.vue'
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/muj',
     component: MujPage,
     name: 'MUJ Event',
+  },
+  {
+    path: '/food',
+    component: FoodPage,
+    name: 'Food',
   }
 ]
 
