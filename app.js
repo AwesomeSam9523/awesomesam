@@ -7,8 +7,10 @@ const port = 5000;
 
 app.use(cors({ origin: '*', optionsSuccessStatus: 200 }));
 const downloadManager = require('./routes/download');
+const badgeManager = require('./routes/badge');
 
 app.use('/download', downloadManager);
+app.use('/badge', badgeManager);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
