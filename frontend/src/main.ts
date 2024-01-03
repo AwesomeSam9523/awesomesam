@@ -1,8 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from "@/views/HomePage.vue"
-import MujPage from "@/views/MujPage.vue"
-import FoodPage from "@/views/FoodPage.vue"
 import App from './App.vue'
 const routes = [
   {
@@ -12,13 +10,23 @@ const routes = [
   },
   {
     path: '/muj',
-    component: MujPage,
+    component: () => import('./views/MujPage.vue'),
     name: 'MUJ Event',
   },
   {
     path: '/food',
-    component: FoodPage,
+    component: () => import('./views/FoodPage.vue'),
     name: 'Food',
+  },
+  {
+    path: '/player/:id',
+    component: () => import('./views/MediaPlayer.vue'),
+    name: 'Web Player',
+  },
+  {
+    path: '/upload',
+    component: () => import('./views/MediaUploader.vue'),
+    name: 'Upload',
   }
 ]
 

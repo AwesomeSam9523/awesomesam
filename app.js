@@ -1,16 +1,26 @@
 const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const fileUpload = require('express-fileupload');
 
 const app = express();
 const port = 5000;
 
 app.use(cors({ origin: '*', optionsSuccessStatus: 200 }));
+app.use(fileUpload(
+  {
+    useTempFiles: true,
+    tempFileDir: './tmp/',
+  }
+));
+
 const downloadManager = require('./routes/download');
 const badgeManager = require('./routes/badge');
+const mediaPlayer = require('./routes/mediaPlayer');
 
 app.use('/download', downloadManager);
 app.use('/badge', badgeManager);
+app.use('/media', mediaPlayer);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
