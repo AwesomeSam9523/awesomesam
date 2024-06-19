@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const router = express.Router();
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 router.get('/:id', (req, res) => {
   const __dirname = path.resolve();
