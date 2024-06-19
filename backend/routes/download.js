@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const path = require('path');
 
 const pool = require('../utils/db');
 
@@ -28,8 +29,8 @@ router.get('/:identifier', async(req, res) => {
 
         const updateQuery = `UPDATE downloads SET downloads = downloads + 1 WHERE "${identifier}" = $1`;
         await pool.query(updateQuery, [fileName]);
-
-        res.download(`./public/${download.path}`);
+        const downloadPath = path.join(__dirname, '..', 'public', download.path);
+        res.download(downloadPath);
 
     } catch (error) {
         console.error(error);

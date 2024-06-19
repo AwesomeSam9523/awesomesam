@@ -17,10 +17,12 @@ app.use(fileUpload(
 const downloadManager = require('./routes/download');
 const badgeManager = require('./routes/badge');
 const mediaPlayer = require('./routes/mediaPlayer');
+const ieeeManager = require('./routes/ieeecs');
 
 app.use('/download', downloadManager);
 app.use('/badge', badgeManager);
 app.use('/media', mediaPlayer);
+app.use('/ieee', ieeeManager);
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
