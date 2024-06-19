@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const fileUpload = require('express-fileupload');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 5000;
@@ -13,6 +14,7 @@ app.use(fileUpload(
     tempFileDir: './tmp/',
   }
 ));
+app.use(bodyParser.json({ limit: '50mb' }));
 
 const downloadManager = require('./routes/download');
 const badgeManager = require('./routes/badge');

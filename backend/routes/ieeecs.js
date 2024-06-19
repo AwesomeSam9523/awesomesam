@@ -15,6 +15,7 @@ router.get('/:id', (req, res) => {
 router.post('/upload', async (req, res, next) => {
   if (req.headers.authorization !== `Bearer ${process.env.IEEE_CS_KEY}`)
     return res.sendStatus(401);
+
   try {
     const {id, image, mimeType} = req.body;
     const fileExtension = mimeType.split('/')[1];
