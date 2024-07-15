@@ -1,0 +1,35 @@
+/* styles.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@keyframes rotateY {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(720deg);
+    }
+}
+
+@keyframes rotateYReverse {
+    from {
+        transform: rotateY(720deg);
+    }
+    to {
+        transform: rotateY(0deg);
+    }
+}
+
+
+.rotate-y-180:hover > * {
+    animation: rotateY 2s forwards;
+}
+
+.rotate-y-180 > * {
+    transition: transform 2s;
+}
+
+.rotate-y-180:not(:hover) > * {
+    animation: rotateYReverse 2s forwards;
+}

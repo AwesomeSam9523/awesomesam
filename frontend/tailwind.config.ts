@@ -13,9 +13,38 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        'spin-slow': 'spin 6s linear infinite',
+        'text': 'text 5s ease infinite',
+      },
+      keyframes: {
+        'text': {
+          '0%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          },
+          '100%': {
+            'background-size': '200% 200%',
+            'background-position': 'left center'
+          }
+        },
+      },
     },
     fontFamily: {
       'name': ['"Radio Canada Big"', 'sans-serif'],
+      'about': ['"Exo 2"', 'sans-serif'],
+    },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+      '3xl': '1920px',
     }
   },
   plugins: [],
