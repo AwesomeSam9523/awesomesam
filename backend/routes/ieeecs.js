@@ -7,6 +7,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 router.get('/:id', (req, res) => {
+  if (req.headers.authorization !== `Bearer ${process.env.IEEE_CS_KEY}`)
+    return res.sendStatus(401);
+
   const __dirname = path.resolve();
   const filePath = path.join(__dirname, `./public/images/${req.params.id}`);
   res.sendFile(filePath);
