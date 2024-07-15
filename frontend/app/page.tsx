@@ -10,7 +10,9 @@ import TechStackIcon from "@/components/TechStackIcon";
 import {fadeIn} from "@/variants";
 
 import backgroundImage from "@/public/background.webp";
+import starsGif from "@/public/stars.gif";
 import coverImage from "@/public/cover.jpg";
+import base64String from "@/data/BlurDataStars";
 
 export default function Home() {
 
@@ -60,7 +62,15 @@ export default function Home() {
 
       <div className="relative flex w-screen h-screen flex-col">
         <div className="absolute bg-contain -z-10 h-screen">
-          <Image src={backgroundImage} alt="background_image" className="h-screen w-screen" quality={100}/>
+          <Image
+            src={starsGif}
+            alt="background_image"
+            className="h-screen w-screen"
+            placeholder="blur"
+            blurDataURL={base64String}
+            width={1920}
+            height={1080}
+          />
         </div>
         <div className="pt-16">
           <div className="">
