@@ -107,7 +107,7 @@ export default function Home() {
             </h1>
             <div
               className="flex justify-center">
-              <div className="w-3/4 flex flex-wrap justify-center gap-4 mt-8">
+              <div className="w-10/12 sm:w-3/4 flex flex-wrap justify-center gap-4 mt-8">
                 {TechStack.map((tech) => (
                   <TechStackIcon key={tech.name} icon={tech.icon} name={tech.name}/>
                 ))}
