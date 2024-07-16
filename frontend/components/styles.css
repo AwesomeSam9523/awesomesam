@@ -33,3 +33,18 @@
 .rotate-y-180:not(:hover) > * {
     animation: rotateYReverse 2s forwards;
 }
+
+@media (max-width: 1024px) {
+    /* On touch devices do not rotate reverse */
+    .rotate-y-180:not(:hover) > * {
+        animation: none;
+    }
+
+    .rotate-y-180 > * {
+        transition: transform 2s;
+    }
+
+    .rotate-y-180:hover > * {
+        animation: rotateYReverse 2s forwards;
+    }
+}

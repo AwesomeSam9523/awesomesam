@@ -10,9 +10,7 @@ import TechStackIcon from "@/components/TechStackIcon";
 import {fadeIn} from "@/variants";
 
 import backgroundImage from "@/public/background.webp";
-import starsGif from "@/public/stars.gif";
 import coverImage from "@/public/cover.jpg";
-import base64String from "@/data/BlurDataStars";
 
 export default function Home() {
 
@@ -61,24 +59,16 @@ export default function Home() {
       </div>
 
       <div className="relative flex w-screen h-screen flex-col">
-        <div className="absolute bg-contain -z-10 h-screen">
-          <Image
-            src={starsGif}
-            alt="background_image"
-            className="h-screen w-screen"
-            placeholder="blur"
-            blurDataURL={base64String}
-            width={1920}
-            height={1080}
-          />
-        </div>
-        <div className="pt-16">
-          <div className="">
-            <h1 className="text-center text-[3rem] font-bold font-name bg-gradient-to-r ease-in-out via-blue-500 bg-clip-text text-transparent
+        <div className="pt-12 h-max sm:h-screen" style={{
+          backgroundImage: `url('/stars.gif')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "repeat-y",
+        }}>
+          <h1 className="text-center text-[2.5rem] sm:text-[3rem] font-bold font-name bg-gradient-to-r ease-in-out via-blue-500 bg-clip-text text-transparent
               from-green-300 to-green-300 animate-text">
-              &lt;About Me /&gt;
-            </h1>
-          </div>
+            &lt;About Me /&gt;
+          </h1>
           <div className="flex justify-center">
             <div className="w-[80%] py-5 flex flex-col gap-4 lg:text-xl text-slate-100 2xl:text-2xl">
               <p>
@@ -110,8 +100,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pt-16">
-            <h1 className="text-center text-[3rem] font-bold font-name bg-gradient-to-r ease-in-out via-blue-500 bg-clip-text text-transparent
+          <div className="pt-8 sm:pt-16">
+            <h1 className="text-center text-[2.5rem] sm:text-[3rem] font-bold font-name bg-gradient-to-r ease-in-out via-blue-500 bg-clip-text text-transparent
               from-green-300 to-green-300 animate-text">
               &lt;Tech stack /&gt;
             </h1>
