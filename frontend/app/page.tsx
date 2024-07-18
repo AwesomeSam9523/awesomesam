@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 import TechStack from "@/data/TechStack";
 import TechStackIcon from "@/components/TechStackIcon";
+import Heading from "@/components/Heading";
 import {fadeIn} from "@/variants";
 
 import backgroundImage from "@/public/background.webp";
@@ -65,10 +66,7 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundRepeat: "repeat-y",
         }}>
-          <h1 className="text-center text-[2.5rem] sm:text-[3rem] font-bold font-name bg-gradient-to-r ease-in-out via-blue-500 bg-clip-text text-transparent
-              from-green-300 to-green-300 animate-text">
-            &lt;About Me /&gt;
-          </h1>
+          <Heading title={"About me"} />
           <div className="flex justify-center">
             <div className="w-[80%] py-5 flex flex-col gap-4 lg:text-xl text-slate-100 2xl:text-2xl">
               <p>
@@ -101,10 +99,7 @@ export default function Home() {
           </div>
 
           <div className="pt-8 sm:pt-16">
-            <h1 className="text-center text-[2.5rem] sm:text-[3rem] font-bold font-name bg-gradient-to-r ease-in-out via-blue-500 bg-clip-text text-transparent
-              from-green-300 to-green-300 animate-text">
-              &lt;Tech stack /&gt;
-            </h1>
+            <Heading title={"Tech stack"} />
             <div
               className="flex justify-center">
               <div className="w-10/12 sm:w-3/4 flex flex-wrap justify-center gap-4 mt-8">
@@ -114,8 +109,22 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="pt-8 sm:pt-16">
+            <Heading title={"Journey"} />
+          </div>
         </div>
       </div>
+
+      {/*<div className="relative flex w-screen h-screen flex-col">*/}
+      {/*  <div className="pt-12 h-max sm:h-screen" style={{*/}
+      {/*    backgroundImage: `url('/stars.gif')`,*/}
+      {/*    backgroundSize: "cover",*/}
+      {/*    backgroundPosition: "center",*/}
+      {/*    backgroundRepeat: "repeat-y",*/}
+      {/*  }}>*/}
+      {/*  </div>*/}
+      {/*</div>*/}
     </main>
-  );
+);
 }
