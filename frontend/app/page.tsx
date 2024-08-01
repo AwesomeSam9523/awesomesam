@@ -10,7 +10,7 @@ import TechStackIcon from "@/components/TechStackIcon";
 import Heading from "@/components/Heading";
 import {fadeIn} from "@/variants";
 
-import backgroundImage from "@/public/background.webp";
+import backgroundImage from "@/public/background.jpg";
 import coverImage from "@/public/cover.jpg";
 
 export default function Home() {
