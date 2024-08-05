@@ -33,10 +33,10 @@ export default function Home() {
           <div
             className="mt-[25%] lg:mt-[15%] items-center w-full flex flex-col xl:flex-row xl:justify-between xl:items-center select-none">
             <div className="flex flex-col items-center xl:items-start">
-              <h1 className="text-center text-[1.75rem] xl:text-[2.25rem] 2xl:text-[3rem]">👋 Hey,</h1>
-              <p className="text-center text-[2rem] xl:text-[2.5rem] 2xl:text-[3.25rem] font-name h-20">
+              <div className="text-center text-[1.75rem] xl:text-[2.25rem] 2xl:text-[3rem]">👋 Hey,</div>
+              <div className="text-center text-[2rem] xl:text-[2.5rem] 2xl:text-[3.25rem] font-name h-20">
                 I am <span className="font-bold" id="typewriter"></span>
-              </p>
+              </div>
               <div className="hidden xl:block mt-12 w-[75%] text-xl xl:text-2xl text-slate-200">
                 I am a student at Manipal University Jaipur, a tech enthusiast
                 & open-source advocate.<br/>
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
 
           <div className="pt-8 sm:pt-16">
-            <Heading title={"Journey"} />
+            <Heading title={"My Projects"} />
           </div>
         </div>
       </div>
