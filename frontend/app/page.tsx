@@ -2,7 +2,7 @@
 import Image from "next/image";
 // @ts-ignore
 import Typewriter from 'typewriter-effect/dist/core';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import { motion } from "framer-motion";
 
 import TechStack from "@/data/TechStack";
@@ -32,8 +32,8 @@ export default function Home() {
             alt="background_image"
             className="h-screen w-screen"
             quality={100}
-            width={window.innerWidth}
-            height={window.innerHeight}
+            width={1920}
+            height={1080}
           />
         </div>
         <div className="xl:w-[80%] xl:ml-[10%]">
