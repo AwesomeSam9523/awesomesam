@@ -34,6 +34,7 @@ export default function Home() {
             quality={100}
             width={1920}
             height={1080}
+            priority={true}
           />
         </div>
         <div className="xl:w-[80%] xl:ml-[10%]">
