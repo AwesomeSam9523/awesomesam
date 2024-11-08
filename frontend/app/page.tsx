@@ -27,7 +27,14 @@ export default function Home() {
     <main className="overflow-x-hidden">
       <div className="relative flex flex-col w-screen h-screen items-center xl:items-start">
         <div className="absolute bg-contain -z-10 h-screen">
-          <Image src={backgroundImage} alt="background_image" className="h-screen w-screen" quality={100}/>
+          <Image
+            src={backgroundImage}
+            alt="background_image"
+            className="h-screen w-screen"
+            quality={100}
+            width={window.innerWidth}
+            height={window.innerHeight}
+          />
         </div>
         <div className="xl:w-[80%] xl:ml-[10%]">
           <div
