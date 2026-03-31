@@ -2,8 +2,8 @@
 import Image from "next/image";
 // @ts-ignore
 import Typewriter from 'typewriter-effect/dist/core';
-import {useEffect, useState} from "react";
-import { motion } from "framer-motion";
+import {useEffect} from "react";
+import {motion} from "framer-motion";
 
 import TechStack from "@/data/TechStack";
 import TechStackIcon from "@/components/TechStackIcon";
@@ -74,7 +74,7 @@ export default function Home() {
           backgroundPosition: "center",
           backgroundRepeat: "repeat-y",
         }}>
-          <Heading title={"About me"} />
+          <Heading title={"About me"}/>
           <div className="flex justify-center">
             <div className="w-[80%] py-5 flex flex-col gap-4 lg:text-xl text-slate-100 2xl:text-2xl">
               <p>
@@ -107,7 +107,7 @@ export default function Home() {
           </div>
 
           <div className="pt-8 sm:pt-16">
-            <Heading title={"Tech stack"} />
+            <Heading title={"Tech stack"}/>
             <div
               className="flex justify-center">
               <div className="w-10/12 sm:w-3/4 flex flex-wrap justify-center gap-4 mt-8">
@@ -118,9 +118,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pt-8 sm:pt-16">
-            <Heading title={"My Projects"} />
-          </div>
+          {/*<div className="pt-8 sm:pt-16">*/}
+          {/*  <Heading title={"My Projects"} />*/}
+          {/*</div>*/}
         </div>
       </div>
 
@@ -134,5 +134,5 @@ export default function Home() {
       {/*  </div>*/}
       {/*</div>*/}
     </main>
-);
+  );
 }
